@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IELTS by Ahmad — Quick Info</title>
+  <meta name="description" content="IELTS by Ahmad: types, details, prices, schedule, what's included, how to join." />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --card:#ffffff;
+      --text:#000000;
+      --muted:#555555;
+      --line:rgba(0,0,0,.08);
+      --ring:rgba(0,0,0,.12);
+      --whatsapp:#25D366;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial}
+    .wrap{max-width:960px;margin:28px auto 80px;padding:0 18px}
+    header{margin-bottom:10px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .orb{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#e8eefc,#f6f8ff);border:1px solid var(--line)}
+    h1{margin:0;font-size:1.6rem}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 8px 26px rgba(0,0,0,.06);overflow:hidden}
+    .hero{padding:20px;display:grid;gap:12px}
+    .kicker{font-weight:800;letter-spacing:.2px}
+    .hero-title{font-size:1.35rem;margin:2px 0}
+    .subline{color:var(--muted)}
+    .hstack{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+    .divider-dot{opacity:.75}
+
+    /* Categories list */
+    .accordion{margin-top:12px;border-top:1px solid var(--line)}
+    .summary{
+      width:100%;display:flex;align-items:center;justify-content:space-between;
+      padding:10px 12px;margin-bottom:6px;
+      font-weight:normal;font-family:'Times New Roman', Times, serif;color:#111;
+      background:#f2f2f2;border:1px solid rgba(0,0,0,.06);
+      border-radius:6px;cursor:pointer;transition:background .2s ease, transform .12s ease;
+    }
+    .summary:hover{background:#ececec}
+    .title{display:flex;align-items:baseline;gap:10px}
+    .title .en{font-weight:normal}
+    .title .ar{color:#444;font-size:.92rem}
+    .plus{position:relative;width:20px;height:20px;border-radius:6px;display:grid;place-items:center;border:1px solid rgba(0,0,0,.15);background:#f5f5f5}
+    .plus::before,.plus::after{content:"";position:absolute;background:#111;border-radius:2px}
+    .plus::before{width:12px;height:2px}
+    .plus::after{width:2px;height:12px}
+
+    /* Fullscreen modal */
+    .overlay{position:fixed;inset:0;z-index:999;display:none;place-items:center;background:rgba(0,0,0,.4);backdrop-filter:blur(6px)}
+    .overlay.open{display:grid}
+    .sheet{width:min(860px,92vw);max-height:86vh;background:#fff;color:#000;border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.2);overflow:hidden;transform:translateY(18px) scale(.98);opacity:0;animation:sheetIn 0.6s ease forwards}
+    @keyframes sheetIn{to{transform:translateY(0) scale(1);opacity:1}}
+    .overlay.closing .sheet{animation:sheetOut .45s ease forwards}
+    @keyframes sheetOut{to{transform:translateY(18px) scale(.98);opacity:0}}
+    .sheet header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:#fafafa;border-bottom:1px solid var(--line)}
+    .sheet header .label{display:flex;align-items:baseline;gap:10px}
+    .sheet header .label .en{font-weight:800;font-size:1.05rem}
+    .sheet header .label .ar{color:#555;font-size:.95rem}
+    .sheet .body{padding:16px;overflow:auto;max-height:calc(86vh - 56px)}
+    .close-btn{display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:1px solid var(--line);background:#fff;color:#000;padding:8px 12px;border-radius:10px;font-weight:700}
+    .close-btn:hover{background:#f2f2f2}
+
+    /* WhatsApp button */
+    .button.whatsapp{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;color:white;background:linear-gradient(135deg,var(--whatsapp),#1ebe57);border:1px solid rgba(0,0,0,.08);padding:12px 16px;border-radius:12px;box-shadow:0 10px 24px rgba(37,211,102,.25);font-weight:800}
+
+    /* Assemble animations (slower) */
+    @keyframes assembleFadeUp{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+    @keyframes assembleFadeDown{from{opacity:0;transform:translateY(-24px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+    @keyframes assembleFadeIn{from{opacity:0}to{opacity:1}}
+
+    .hero-title{opacity:0;animation:assembleFadeDown 1.6s ease .3s forwards}
+    .subline{opacity:0;animation:assembleFadeUp 1.6s ease 1.7s forwards}
+    .accordion .summary{opacity:0;animation:assembleFadeUp 1.2s ease forwards}
+    .accordion .summary:nth-of-type(1){animation-delay:3.0s}
+    .accordion .summary:nth-of-type(2){animation-delay:3.3s}
+    .accordion .summary:nth-of-type(3){animation-delay:3.6s}
+    .accordion .summary:nth-of-type(4){animation-delay:3.9s}
+    .accordion .summary:nth-of-type(5){animation-delay:4.2s}
+    .accordion .summary:nth-of-type(6){animation-delay:4.5s}
+    .accordion .summary:nth-of-type(7){animation-delay:4.8s}
+
+    @media (prefers-reduced-motion: reduce){
+      *,*::before,*::after{animation:none !important; transition:none !important;}
+    }
+  
+/* Floating hero box */
+.hero-card{
+  background:#ffffff;
+  border:1px solid var(--line);
+  border-radius:32px;
+  padding:18px 20px;
+  box-shadow:0 14px 44px rgba(0,0,0,.18.12);
+  margin-bottom:14px;
+  opacity:0;
+  animation: heroFloatIn 1.1s ease .25s forwards;
+}
+@keyframes heroFloatIn{
+  from{opacity:0; transform: translateY(16px) scale(.98);}
+  to{opacity:1; transform: translateY(0) scale(1);}
+}
+
+
+/* Polished course type block */
+.types-polished .lead{ margin: 0 0 8px; font-weight: 600; }
+.types-polished ul{ margin: 0 0 6px 18px; }
+.types-polished li{ margin: 8px 0; }
+.types-polished em{ font-style: normal; font-weight: 600; }
+
+
+/* CSS-only modal fallback (works even when JS is blocked) */
+.overlay-target {
+  position: fixed; inset: 0; z-index: 999;
+  display: none; place-items: center;
+  background: rgba(0,0,0,.45); backdrop-filter: blur(6px);
+}
+.overlay-target:target { display: grid; }
+.overlay-target .sheet {
+  width: min(860px, 92vw); max-height: 86vh;
+  background: #fff; color: #000;
+  border: 1px solid rgba(0,0,0,.08); border-radius: 16px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.2);
+  overflow: auto; transform: translateY(18px) scale(.98); opacity: 0;
+  animation: sheetIn 0.6s ease forwards;
+}
+.overlay-target header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 14px 16px; background:#fafafa; border-bottom:1px solid rgba(0,0,0,.08);
+}
+.overlay-target .body { padding: 16px; }
+.overlay-target .close-btn {
+  text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+  border:1px solid rgba(0,0,0,.08); background:#fff; color:#000;
+  padding:8px 12px; border-radius:10px; font-weight:700;
+}
+
+
+/* === Ultra-stable checkbox popups (no JS, no hash) === */
+.modal-toggle{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+.overlay-modal{position:fixed;inset:0;z-index:999;display:none;place-items:center;
+  background:rgba(0,0,0,.45);backdrop-filter:blur(6px)}
+.modal-toggle:checked + .overlay-modal{display:grid}
+.overlay-modal .backdrop{position:absolute;inset:0;cursor:pointer}
+.overlay-modal .sheet{position:relative;width:min(860px,92vw);max-height:86vh;overflow:auto;
+  background:#fff;color:#000;border:1px solid rgba(0,0,0,.08);border-radius:16px;
+  box-shadow:0 30px 80px rgba(0,0,0,.2);animation:sheetIn .45s ease forwards;transform:translateY(12px);opacity:0}
+@keyframes sheetIn{to{transform:translateY(0);opacity:1}}
+.overlay-modal header{display:flex;align-items:center;justify-content:space-between;
+  padding:14px 16px;background:#fafafa;border-bottom:1px solid rgba(0,0,0,.08)}
+.overlay-modal header .label{display:flex;align-items:baseline;gap:10px}
+.overlay-modal .body{padding:16px}
+.close-btn{display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+  border:1px solid rgba(0,0,0,.08);background:#fff;color:#000;padding:8px 12px;border-radius:10px;font-weight:700}
+.close-btn:hover{background:#f2f2f2}
+
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="orb" aria-hidden="true"></div>
+        <div>
+          <h1>IELTS by Ahmad — Quick Info</h1>
+        </div>
+      </div>
+    </header>
+
+    <section class="card hero">
+      <div>
+        <div class="hero-card">
+          <div class="kicker">IELTS by Ahmad • Achieve band 7–8–9</div>
+        <h2 class="hero-title">Achieve your best score with focused, practical training — <span class="ar" dir="rtl">انطلق نحو النجاح بتدريب عملي مركز يضمن تميّزك</span></h2>
+        <div class="subline hstack">
+          <span class="en">Private and group options. Online and in-class. Clear structure, real exam practice, and detailed feedback.</span>
+          <span class="divider-dot">•</span>
+          <span class="ar" dir="rtl">خيارات خاصة وجماعية. أونلاين وحضوري. هيكل واضح، تدريب عملي على الامتحان، وملاحظات تفصيلية.</span>
+        </div>
+              </div>
+
+      <div class="accordion" id="accordion">
+
+        <!-- 1) Course Type -->
+        <div class="item">
+          <a class="summary" href="#types">
+            <div class="title"><span class="en">Course Type</span><span class="ar" dir="rtl">أنواع الدورة</span></div>
+            <span class="plus" aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <!-- 2) Course Details -->
+        <div class="item">
+          <label class="summary" for="pop-details">
+            <div class="title"><span class="en">Course Details</span><span class="ar" dir="rtl">تفاصيل الدورة</span></div>
+            <span class="plus" aria-hidden="true"></span>
+          </label>
+        </div>
+
+        <!-- 3) Prices -->
+        <div class="item">
+          <label class="summary" for="pop-prices">
+            <div class="title"><span class="en">Prices</span><span class="ar" dir="rtl">الأسعار</span></div>
+            <span class="plus" aria-hidden="true"></span>
+          </label>
+        </div>
+
+        <!-- 4) Schedule &amp; Duration -->
+        <div class="item">
+          <label class="summary" for="pop-schedule">
+            <div class="title"><span class="en">Schedule &amp; Duration</span><span class="ar" dir="rtl">الجدول الزمني والمدة</span></div>
+            <span class="plus" aria-hidden="true"></span>
+          </label>
+        </div>
+
+        <!-- 5) What's Included -->
+        <div class="item">
+          <label class="summary" for="pop-included">
+            <div class="title"><span class="en">What’s Included</span><span class="ar" dir="rtl">ما الذي يتضمنه</span></div>
+            <span class="plus" aria-hidden="true"></span>
+          </label>
+        </div>
+
+        <!-- 6) How to Join -->
+        <div class="item">
+          <label class="summary" for="pop-join">
+            <div class="title"><span class="en">How to Join</span><span class="ar" dir="rtl">كيفية التسجيل</span></div>
+            <span class="plus" aria-hidden="true"></span>
+          </label>
+        </div>
+
+        <!-- 7) FAQ -->
+        <div class="item">
+          <label class="summary" for="pop-faq">
+            <div class="title"><span class="en">FAQ</span><span class="ar" dir="rtl">الأسئلة الشائعة</span></div>
+            <span class="plus" aria-hidden="true"></span>
+          </label>
+        </div>
+
+      </div>
+    
+<!-- CSS-only modal for Course Type -->
+<div id="types" class="overlay-target" aria-hidden="false">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="types-title">
+    <header>
+      <div class="label"><span class="en" id="types-title">Course Type</span><span class="ar" dir="rtl">أنواع الدورة</span></div>
+      <a href="#" class="close-btn" aria-label="Close">✕ Close</a>
+    </header>
+    <div class="body">
+      <article class="types-polished">
+  <p class="lead en">
+    Choose the format that fits your schedule. All options follow the same curriculum and include feedback.
+  </p>
+  <ul class="en">
+    <li><strong>In‑class (live):</strong> <em>Private</em> — 1 student • <em>Small group</em> — up to 5 students.</li>
+    <li><strong>Online (live):</strong> <em>Private</em> — 1 student • <em>Small group</em> — up to 4 students.</li>
+    <li><strong>Pre‑recorded:</strong> Full course videos with the same structure and materials. Watch anytime, learn at your pace.</li>
+  </ul>
+
+  <hr style="border:none;border-top:1px solid rgba(0,0,0,.08);margin:14px 0" />
+
+  <p class="lead ar" dir="rtl">
+    اختر الصيغة التي تناسب وقتك. جميع الخيارات بنفس المنهج وتشمل ملاحظات وتصحيحًا.
+  </p>
+  <ul class="ar" dir="rtl">
+    <li><strong>حضوري (مباشر):</strong> <em>خاص</em> — طالب واحد • <em>مجموعة صغيرة</em> — حتى ٥ طلاب.</li>
+    <li><strong>أونلاين (مباشر):</strong> <em>خاص</em> — طالب واحد • <em>مجموعة صغيرة</em> — حتى ٤ طلاب.</li>
+    <li><strong>مسجّل مسبقًا:</strong> نفس هيكل الدورة وموادها على شكل فيديوهات. تشاهد متى تشاء وبالسرعة التي تناسبك.</li>
+  </ul>
+</article>
+    </div>
+  </div>
+</div>
+
+
+
+
+<input type="checkbox" id="pop-details" class="modal-toggle" />
+<div class="overlay-modal">
+  <label class="backdrop" for="pop-details"></label>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="pop-details-title">
+    <header>
+      <div class="label"><span class="en" id="pop-details-title">Course Details</span><span class="ar" dir="rtl">تفاصيل الدورة</span></div>
+      <label for="pop-details" class="close-btn">✕ Close</label>
+    </header>
+    <div class="body">
+      
+<p>Our IELTS course gives complete preparation across the four skills: Listening, Reading, Writing, and Speaking.
+We explain task types, timing, and what examiners look for in detail.
+Integrated grammar lessons raise accuracy in Writing and improve fluency and range in Speaking.
+We review real mistakes made by past students to help you avoid them.
+Weekly timed drills, model answers, and personalized feedback are provided.
+We also train mental readiness and time management for a confident exam day.</p>
+
+<p dir="rtl">نقدّم في دورة الآيلتس إعدادًا كاملاً لمهارات الاستماع والقراءة والكتابة والتحدث.
+نشرح أنواع الأسئلة، وآلية توزيع الوقت، وما الذي يبحث عنه الممتحِن بالتفصيل.
+نُدرج دروس قواعد لغوية لرفع الدقة في الكتابة وتحسين الطلاقة في التحدث.
+نستعرض أخطاء حقيقية لطلاب سابقين لتجنب تكرارها.
+نوفر تدريبات مُؤقّتة، وإجابات نموذجية، وتغذية راجعة أسبوعية.
+كما ندرّب على الاستعداد الذهني وإدارة الوقت ليوم الامتحان بثقة.</p>
+
+    </div>
+  </div>
+</div>
+
+<input type="checkbox" id="pop-prices" class="modal-toggle" />
+<div class="overlay-modal">
+  <label class="backdrop" for="pop-prices"></label>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="pop-prices-title">
+    <header>
+      <div class="label"><span class="en" id="pop-prices-title">Prices</span><span class="ar" dir="rtl">الأسعار</span></div>
+      <label for="pop-prices" class="close-btn">✕ Close</label>
+    </header>
+    <div class="body">
+      
+<p class="en"><strong>$699</strong> Private — In‑class</p>
+<p class="en"><strong>$449</strong> Private — Online</p>
+<p class="en"><strong>$299</strong> Group — In‑class</p>
+<p class="en"><strong>$199</strong> Group — Online</p>
+<p class="en"><strong>$199</strong> Pre‑recorded lectures</p>
+<hr style="border:none;border-top:1px solid rgba(0,0,0,.08);margin:10px 0" />
+<p class="ar" dir="rtl"><strong>٦٩٩ دولار</strong> خاص — حضوري</p>
+<p class="ar" dir="rtl"><strong>٤٤٩ دولار</strong> خاص — أونلاين</p>
+<p class="ar" dir="rtl"><strong>٢٩٩ دولار</strong> مجموعة — حضوري</p>
+<p class="ar" dir="rtl"><strong>١٩٩ دولار</strong> مجموعة — أونلاين</p>
+<p class="ar" dir="rtl"><strong>١٩٩ دولار</strong> محاضرات مسجّلة</p>
+<p class="en" style="color:#666">Installments available • Group discounts</p>
+<p class="ar" dir="rtl" style="color:#666">إمكانية الدفع بالأقساط • خصومات للمجموعات</p>
+
+    </div>
+  </div>
+</div>
+
+<input type="checkbox" id="pop-schedule" class="modal-toggle" />
+<div class="overlay-modal">
+  <label class="backdrop" for="pop-schedule"></label>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="pop-schedule-title">
+    <header>
+      <div class="label"><span class="en" id="pop-schedule-title">Schedule &amp; Duration</span><span class="ar" dir="rtl">الجدول الزمني والمدة</span></div>
+      <label for="pop-schedule" class="close-btn">✕ Close</label>
+    </header>
+    <div class="body">
+      
+<p>The IELTS course runs for <strong>6 to 8 weeks</strong>, with <strong>three sessions per week</strong>.
+Each session is <strong>two hours</strong>, covering explanation, practice, and feedback.
+For <em>group classes</em>, we offer <strong>morning sessions</strong> on <strong>Friday and Saturday</strong>.
+For <em>private classes</em>, you can choose <strong>morning, afternoon, or evening</strong> sessions to match your schedule.</p>
+
+<p dir="rtl">تستمر دورة الآيلتس لمدة <strong>٦ إلى ٨ أسابيع</strong>، بواقع <strong>ثلاث حصص في الأسبوع</strong>.
+مدة كل حصة <strong>ساعتان</strong> تشمل الشرح والتدريب والملاحظات.
+لـ <em>المجموعات</em>، نقدّم <strong>حصصًا صباحية</strong> أيام <strong>الجمعة والسبت</strong>.
+أما <em>الدروس الخاصة</em>، فيمكنك اختيار <strong>صباحية أو بعد الظهر أو مسائية</strong> بما يناسب وقتك.</p>
+
+    </div>
+  </div>
+</div>
+
+<input type="checkbox" id="pop-included" class="modal-toggle" />
+<div class="overlay-modal">
+  <label class="backdrop" for="pop-included"></label>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="pop-included-title">
+    <header>
+      <div class="label"><span class="en" id="pop-included-title">What’s Included</span><span class="ar" dir="rtl">ما الذي يتضمنه</span></div>
+      <label for="pop-included" class="close-btn">✕ Close</label>
+    </header>
+    <div class="body">
+      
+<ul>
+  <li>Placement test &amp; level check</li>
+  <li>All lesson materials + practice tests</li>
+  <li>Detailed feedback on writing &amp; speaking</li>
+  <li>WhatsApp support for questions</li>
+  <li><strong>Grammar course included during training</strong></li>
+  <li><strong>Full pre‑recorded course for review anytime</strong></li>
+  <li><strong>Over 400 mock exams for intensive practice</strong></li>
+  <li><strong>Around‑the‑clock student support</strong></li>
+</ul>
+
+<ul dir="rtl">
+  <li>اختبار تحديد مستوى</li>
+  <li>جميع مواد الدروس + اختبارات تدريبية</li>
+  <li>ملاحظات تفصيلية على الكتابة والتحدث</li>
+  <li>دعم عبر الواتساب للإجابة على الأسئلة</li>
+  <li><strong>دورة قواعد لغة مدمجة مع التدريب</strong></li>
+  <li><strong>دورة مسجّلة كاملة للمراجعة في أي وقت</strong></li>
+  <li><strong>أكثر من ٤٠٠ اختبار تجريبي للتدريب المكثف</strong></li>
+  <li><strong>دعم للطلاب على مدار الساعة</strong></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+<input type="checkbox" id="pop-join" class="modal-toggle" />
+<div class="overlay-modal">
+  <label class="backdrop" for="pop-join"></label>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="pop-join-title">
+    <header>
+      <div class="label"><span class="en" id="pop-join-title">How to Join</span><span class="ar" dir="rtl">كيفية التسجيل</span></div>
+      <label for="pop-join" class="close-btn">✕ Close</label>
+    </header>
+    <div class="body">
+      
+<p>If you hope to join our courses, send us a message on <strong>Instagram Direct</strong> or <strong>WhatsApp</strong> with:</p>
+<ol>
+  <li><strong>First &amp; Family Name</strong></li>
+  <li><strong>Phone Number</strong></li>
+  <li><strong>Type of course</strong> you want (Private / Group / Online / In‑class / Pre‑recorded)</li>
+</ol>
+<p>We will reply with the next steps and full registration details.</p>
+
+<p dir="rtl">إذا كنت ترغب بالانضمام إلى دوراتنا، أرسل لنا رسالة عبر <strong>إنستغرام دايركت</strong> أو <strong>واتساب</strong> تتضمن:</p>
+<ol dir="rtl">
+  <li><strong>الاسم الأول واسم العائلة</strong></li>
+  <li><strong>رقم الهاتف</strong></li>
+  <li><strong>نوع الدورة</strong> التي تريدها (خاص / مجموعة / أونلاين / حضوري / مسجّلة)</li>
+</ol>
+<p dir="rtl">سنرد عليك بخطوات التسجيل والتفاصيل الكاملة.</p>
+
+    </div>
+  </div>
+</div>
+
+<input type="checkbox" id="pop-faq" class="modal-toggle" />
+<div class="overlay-modal">
+  <label class="backdrop" for="pop-faq"></label>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="pop-faq-title">
+    <header>
+      <div class="label"><span class="en" id="pop-faq-title">FAQ</span><span class="ar" dir="rtl">الأسئلة الشائعة</span></div>
+      <label for="pop-faq" class="close-btn">✕ Close</label>
+    </header>
+    <div class="body">
+      
+<dl>
+  <dt><strong>1) Do I need a placement test?</strong></dt>
+  <dd>Yes, we run a quick level check to place you correctly.</dd>
+  <dt><strong>2) When do new groups start?</strong></dt>
+  <dd>Groups open regularly; message us for the next start date.</dd>
+  <dt><strong>3) What if I miss a class?</strong></dt>
+  <dd>Group: notes and recordings available. Private: reschedule with notice.</dd>
+  <dt><strong>4) Can I pay in installments?</strong></dt>
+  <dd>Yes, installment plans are available.</dd>
+  <dt><strong>5) Are materials included?</strong></dt>
+  <dd>Yes—materials, practice tests, and access to the pre‑recorded course.</dd>
+  <dt><strong>6) How many students per group?</strong></dt>
+  <dd>Small groups (typically 4–5) to maximize practice and feedback.</dd>
+  <dt><strong>7) How long do I keep access to recordings?</strong></dt>
+  <dd>Access remains during the course period for continuous review.</dd>
+  <dt><strong>8) What language is used in class?</strong></dt>
+  <dd>Mainly English, with Arabic support for clarification when needed.</dd>
+  <dt><strong>9) Do I get a certificate?</strong></dt>
+  <dd>Yes, a completion certificate is issued at the end of the program.</dd>
+  <dt><strong>10) How do I contact support?</strong></dt>
+  <dd>Message us via WhatsApp anytime; we aim to respond quickly.</dd>
+</dl>
+
+<dl dir="rtl">
+  <dt><strong>١) هل أحتاج اختبار تحديد مستوى؟</strong></dt>
+  <dd>نعم، نقوم بفحص سريع لتحديد المستوى بدقة.</dd>
+  <dt><strong>٢) متى تبدأ المجموعات الجديدة؟</strong></dt>
+  <dd>نفتح مجموعات بشكل دوري؛ راسلنا لمعرفة أقرب موعد بدء.</dd>
+  <dt><strong>٣) ماذا لو فاتتني حصة؟</strong></dt>
+  <dd>للمجموعة: نوفر ملاحظات وتسجيلات. للخاص: نعيد الجدولة عند الإشعار مسبقًا.</dd>
+  <dt><strong>٤) هل يمكن الدفع بالأقساط؟</strong></dt>
+  <dd>نعم، تتوفر خطط تقسيط.</dd>
+  <dt><strong>٥) هل المواد مشمولة؟</strong></dt>
+  <dd>نعم—المواد والاختبارات والوصول إلى الدورة المسجّلة.</dd>
+  <dt><strong>٦) كم عدد الطلاب في المجموعة؟</strong></dt>
+  <dd>مجموعات صغيرة (عادةً ٤–٥) لتعظيم الممارسة والملاحظات.</dd>
+  <dt><strong>٧) كم مدة الوصول إلى التسجيلات؟</strong></dt>
+  <dd>يستمر الوصول طوال فترة الدورة للمراجعة.</dd>
+  <dt><strong>٨) بأي لغة يتم التدريس؟</strong></dt>
+  <dd>بالأساس الإنجليزية مع دعم بالعربية عند الحاجة.</dd>
+  <dt><strong>٩) هل أحصل على شهادة؟</strong></dt>
+  <dd>نعم، تُمنح شهادة إكمال في نهاية البرنامج.</dd>
+  <dt><strong>١٠) كيف أتواصل مع الدعم؟</strong></dt>
+  <dd>أرسل لنا على الواتساب في أي وقت، ونرد بأسرع ما يمكن.</dd>
+</dl>
+
+    </div>
+  </div>
+</div>
+
+
+</section>
+
+    <!-- WhatsApp CTA -->
+    <div id="cta-whatsapp" style="margin-top:22px;text-align:center;">
+      <a class="button whatsapp" href="https://wa.me/9647740195269" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <!-- single icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M16 3c-7.2 0-13 5.8-13 13 0 2.3.6 4.5 1.7 6.5L3 29l6.6-1.7c1.9 1 4.1 1.6 6.4 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 2c6.1 0 11 4.9 11 11s-4.9 11-11 11c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.5.9.9-3.4-.3-.4C6.3 21.9 5.8 20 5.8 18 5.8 11.9 9.7 7 16 7z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+
+    <p style="text-align:center;color:#777;margin-top:14px">© <span id="year"></span> IELTS by Ahmad — Update this page anytime by editing the HTML.</p>
+  </div>
+
+  <!-- TEMPLATES FOR MODAL CONTENT -->
+  <template id="tpl-types">
+<article class="types-polished">
+  <p class="lead en">
+    Choose the format that fits your schedule. All options follow the same curriculum and include feedback.
+  </p>
+  <ul class="en">
+    <li><strong>In‑class (live):</strong> <em>Private</em> — 1 student • <em>Small group</em> — up to 5 students.</li>
+    <li><strong>Online (live):</strong> <em>Private</em> — 1 student • <em>Small group</em> — up to 4 students.</li>
+    <li><strong>Pre‑recorded:</strong> Full course videos with the same structure and materials. Watch anytime, learn at your pace.</li>
+  </ul>
+
+  <hr style="border:none;border-top:1px solid rgba(0,0,0,.08);margin:14px 0" />
+
+  <p class="lead ar" dir="rtl">
+    اختر الصيغة التي تناسب وقتك. جميع الخيارات بنفس المنهج وتشمل ملاحظات وتصحيحًا.
+  </p>
+  <ul class="ar" dir="rtl">
+    <li><strong>حضوري (مباشر):</strong> <em>خاص</em> — طالب واحد • <em>مجموعة صغيرة</em> — حتى ٥ طلاب.</li>
+    <li><strong>أونلاين (مباشر):</strong> <em>خاص</em> — طالب واحد • <em>مجموعة صغيرة</em> — حتى ٤ طلاب.</li>
+    <li><strong>مسجّل مسبقًا:</strong> نفس هيكل الدورة وموادها على شكل فيديوهات. تشاهد متى تشاء وبالسرعة التي تناسبك.</li>
+  </ul>
+</article>
+</template>
+
+  <template id="tpl-details">
+    <ul>
+      <li>Complete coverage: Listening, Reading, Writing, Speaking</li>
+      <li>Task 1 &amp; 2 frameworks + model answers</li>
+      <li>Speaking mocks with feedback and band estimates</li>
+      <li>Time management and exam‑day strategy</li>
+      <li>Weekly homework and progress tracking</li>
+    </ul>
+  </template>
+
+  <template id="tpl-prices">
+    <p><strong>$300</strong> Online (per full course)</p>
+    <p><strong>$400</strong> In‑class (per full course)</p>
+    <p style="color:#666">Installments available • Group discounts</p>
+  </template>
+
+  <template id="tpl-schedule">
+    <ul>
+      <li>Typical length: 4–6 weeks</li>
+      <li>2–3 sessions/week • 90 minutes each</li>
+      <li>Morning or evening slots available</li>
+    </ul>
+  </template>
+
+  <template id="tpl-included">
+    <ul>
+      <li>Placement test &amp; level check</li>
+      <li>All lesson materials + practice tests</li>
+      <li>Detailed feedback on writing &amp; speaking</li>
+      <li>WhatsApp support for questions</li>
+    </ul>
+  </template>
+
+  <template id="tpl-join">
+    <ol>
+      <li>Message on WhatsApp using the button</li>
+      <li>Pick online or in‑class &amp; your preferred schedule</li>
+      <li>Complete quick placement (if needed)</li>
+      <li>Confirm your seat with payment</li>
+    </ol>
+  </template>
+
+  <template id="tpl-faq">
+    <ul>
+      <li><strong>Can I pay in parts?</strong> Yes, installments are available.</li>
+      <li><strong>Band guarantee?</strong> We guarantee serious training and feedback—results depend on effort and attendance.</li>
+      <li><strong>Missed a class?</strong> Catch‑up options available.</li>
+    </ul>
+  </template>
+
+  <script>
+    // modal logic
+    const overlay = document.createElement('div');
+    // (already in DOM above as .overlay, but we keep code simple)
+    const ov = document.createElement('div');
+
+    // Use the existing overlay in the markup
+    const modalOverlay = document.createElement('div');
+
+    // Create overlay elements if not present (defensive)
+    let overlayEl = document.querySelector('.overlay');
+    if(!overlayEl){
+      overlayEl = document.createElement('div');
+      overlayEl.className = 'overlay';
+      overlayEl.innerHTML = `
+        <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+          <header>
+            <div class="label"><span class="en" id="sheet-title">Section</span><span class="ar" id="sheet-title-ar" dir="rtl"></span></div>
+            <button class="close-btn" id="closeSheet" aria-label="Close">✕ Close</button>
+          </header>
+          <div class="body" id="sheet-body"></div>
+        </div>`;
+      document.body.appendChild(overlayEl);
+    }
+    const bodyEl = overlayEl.querySelector('#sheet-body');
+    const titleEn = overlayEl.querySelector('#sheet-title');
+    const titleAr = overlayEl.querySelector('#sheet-title-ar');
+    const closeBtn = overlayEl.querySelector('#closeSheet');
+
+    document.querySelectorAll('.summary').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tplId = btn.getAttribute('data-target');
+        const tpl = document.getElementById(tplId);
+        if (!tpl) return;
+        // set bilingual header
+        const en = btn.querySelector('.title .en')?.textContent?.trim() || 'Details';
+        const ar = btn.querySelector('.title .ar')?.textContent?.trim() || '';
+        titleEn.textContent = en; titleAr.textContent = ar;
+        // load content
+        bodyEl.innerHTML = tpl.innerHTML;
+        overlayEl.classList.remove('closing');
+        overlayEl.classList.add('open');
+        document.documentElement.style.overflow = 'hidden';
+      });
+    });
+
+    function closeSheet(){
+      overlayEl.classList.add('closing');
+      setTimeout(()=>{
+        overlayEl.classList.remove('closing'); overlayEl.classList.remove('open');
+        bodyEl.innerHTML = '';
+        document.documentElement.style.overflow = '';
+      }, 450);
+    }
+    closeBtn.addEventListener('click', closeSheet);
+    overlayEl.addEventListener('click', (e)=>{ if(e.target === overlayEl) closeSheet(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeSheet(); });
+  </script>
+</body>
+</html>
